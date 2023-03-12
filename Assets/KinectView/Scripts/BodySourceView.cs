@@ -12,6 +12,7 @@ public class BodySourceView : MonoBehaviour
     private Dictionary<ulong, GameObject> bodies = new Dictionary<ulong, GameObject>();
     private List<JointType> jointsList = new List<JointType>
     {
+        JointType.Head,
         JointType.HandLeft,
         JointType.HandRight,
     };
@@ -57,8 +58,8 @@ public class BodySourceView : MonoBehaviour
                 if (!bodies.ContainsKey(body.TrackingId))
                 {
                     bodies[body.TrackingId] = CreateBodyObject(body.TrackingId);
-                    UpdateBodyObject(body, bodies[body.TrackingId]);
                 }
+                UpdateBodyObject(body, bodies[body.TrackingId]);
             }
         }
     }
